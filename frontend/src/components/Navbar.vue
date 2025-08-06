@@ -7,7 +7,7 @@
             <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg flex items-center justify-center group-hover:shadow-lg transition-shadow">
               <Users class="w-5 h-5 text-white" />
             </div>
-            <span class="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">Community</span>
+            <span class="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">EcmaMint</span>
           </router-link>
         </div>
 
