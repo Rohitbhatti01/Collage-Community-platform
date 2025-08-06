@@ -60,19 +60,6 @@ npm install
 npm run dev
 ```
 
----
-
-## ✅ Admin Login
-
-Default admin user (created by seeder):
-
-```
-Email: admin@platform.com
-Password: admin123
-```
-
----
-
 ## 🔄 API Flow Summary
 
 ### 1. User Registration (Pending by Default)
