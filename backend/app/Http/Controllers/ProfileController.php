@@ -87,15 +87,20 @@ class ProfileController extends Controller
     }
 
     public function getAllUsers()
-{
-    $users = User::with('profile')
-                ->where('status', 'approved') // ✅ Correct column
-                ->get();
+    {
+        $currentUserId = auth()->id(); // currently logged-in user ID
 
-    return response()->json([
-        'success' => true,
-        'users' => $users
-    ]);
-}
+        $users = User::with('profile')
+            ->where('status', 'approved')              // only approved users
+            ->where('id', '!=', $currentUserId)        // exclude current user
+            ->where('role', '!=', 'admin')             // exclude admins
+            ->orderBy('created_at', 'desc') 
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'users' => $users
+        ]);
+    }
 
 }

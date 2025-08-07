@@ -89,12 +89,19 @@ Route::middleware(['auth:sanctum', 'approved'])->group(function () {
 */
 Route::middleware(['auth:sanctum', 'approved', 'admin'])->prefix('admin')->group(function () {
 
+    // get all users..
+    Route::get('/users', [AdminController::class, 'getAllUsers']);
     // 🟡 Get Pending Users
     Route::get('/pending-users', [AdminController::class, 'getPendingUsers'])->name('admin.pending');
 
     // ✅ Approve/Reject Users
     Route::post('/approve-user/{userId}', [AdminController::class, 'approveUser'])->name('admin.approve');
     Route::post('/reject-user/{userId}', [AdminController::class, 'rejectUser'])->name('admin.reject');
+    // ✅ Get Approved + rejected Users
+    Route::get('/approved-users', [AdminController::class, 'getApprovedUsers']);
+    Route::get('/rejected-users', [AdminController::class, 'getRejectedUsers'])->name('admin.rejected');
+
+
 
     // 📊 Admin Dashboard Stats
     Route::get('/stats', [AdminController::class, 'getStats'])->name('admin.stats');
